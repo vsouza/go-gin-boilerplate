@@ -1,0 +1,6 @@
+.swp
+config/prod.yaml
+build/
+Godeps/
+!Godeps/Godeps.json
+go-gin-boilerplate
