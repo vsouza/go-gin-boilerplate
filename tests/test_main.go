@@ -4,9 +4,9 @@ import (
 	"testing"
 
 	"github.com/gin-gonic/gin"
-	"github.com/lincare/moria/config"
-	"github.com/lincare/moria/controllers"
 	"github.com/spf13/viper"
+	"github.com/vsouza/go-gin-boilerplate/config"
+	"github.com/vsouza/go-gin-boilerplate/controllers"
 )
 
 func Test(t *testing.T) { TestingT(t) }

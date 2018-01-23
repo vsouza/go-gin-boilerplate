@@ -26,8 +26,12 @@ type User struct {
 
 func (h User) Signup(userPayload forms.UserSignup) (*User, error) {
 	db := db.GetDB()
+	id, err := uuid.NewV4()
+	if err != nil {
+		return nil, err
+	}
 	user := User{
-		ID:        uuid.NewV4().String(),
+		ID:        id.String(),
 		Name:      userPayload.Name,
 		BirthDay:  userPayload.BirthDay,
 		Gender:    userPayload.Gender,
