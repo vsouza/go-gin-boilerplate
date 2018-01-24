@@ -9,7 +9,7 @@ import (
 	"github.com/vsouza/go-gin-boilerplate/controllers"
 )
 
-func Test(t *testing.T) { TestingT(t) }
+func Test(t *testing.T) { Testing(t) }
 
 var _ = Suite(&UserSuite{})
 
@@ -18,7 +18,7 @@ type UserSuite struct {
 	router *gin.Engine
 }
 
-func (s *MoriaSuite) SetUpTest(c *C) {
+func (s *UserSuite) SetUpTest(c *C) {
 	config.Init("test")
 	s.config = config.GetConfig()
 	s.router = SetupRouter()
@@ -34,9 +34,6 @@ func SetupRouter() *gin.Engine {
 		{
 			user := new(controllers.UserController)
 			userGroup.GET("/:id", user.Retrieve)
-			userGroup.POST("/", user.Signup)
-			userGroup.DELETE("/:id", user.Delete)
-			userGroup.PUT("/:id", user.Update)
 		}
 	}
 	return router
