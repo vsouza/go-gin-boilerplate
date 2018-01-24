@@ -1,0 +1,25 @@
+language: go
+
+go:
+  - 1.9
+  - master 
+
+install: true
+
+matrix:
+  allow_failures:
+    - go: master
+  fast_finish: true
+
+notifications:
+  email: false
+
+before_script:
+  - go get -v github.com/Masterminds/glide
+  - cd $GOPATH/src/github.com/Masterminds/glide && go install && cd -
+  - glide install
+  - go get github.com/golang/lint/golint                        # Linter
+
+script:
+  - go test -v -race ./...                   # Run all the tests with the race detector enabled
+  - golint -set_exit_status $(go list ./...) # one last linter
