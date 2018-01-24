@@ -62,7 +62,13 @@ make deps
 
 ## Development setup
 
-Run docker DynamoDB image or setup you `AWS_CREDENTIALS`
+Running DynamoDB on Docker Image:
+
+check this project: [vsouza/docker-dynamoDB-local](https://github.com/vsouza/docker-dynamoDB-local)
+
+Setup Glide:
+
+[Glide Package Management](https://glide.sh)
 
 ## Release History
 
