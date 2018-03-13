@@ -38,3 +38,7 @@ func SetupRouter() *gin.Engine {
 	}
 	return router
 }
+
+func TestMain(m *testing.M) {
+	SetupRouter()
+}

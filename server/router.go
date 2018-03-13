@@ -12,7 +12,7 @@ func NewRouter() *gin.Engine {
 
 	health := new(controllers.HealthController)
 	router.GET("/health", health.Status)
-	//	router.Use(AuthMiddleware())
+	router.Use(AuthMiddleware())
 	v1 := router.Group("v1")
 	{
 		userGroup := v1.Group("user")
