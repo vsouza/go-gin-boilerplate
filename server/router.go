@@ -3,6 +3,7 @@ package server
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/vsouza/go-gin-boilerplate/controllers"
+	"github.com/vsouza/go-gin-boilerplate/middlewares"
 )
 
 func NewRouter() *gin.Engine {
@@ -11,8 +12,10 @@ func NewRouter() *gin.Engine {
 	router.Use(gin.Recovery())
 
 	health := new(controllers.HealthController)
+
 	router.GET("/health", health.Status)
-	router.Use(AuthMiddleware())
+	router.Use(middlewares.AuthMiddleware())
+
 	v1 := router.Group("v1")
 	{
 		userGroup := v1.Group("user")
@@ -22,4 +25,5 @@ func NewRouter() *gin.Engine {
 		}
 	}
 	return router
+
 }
