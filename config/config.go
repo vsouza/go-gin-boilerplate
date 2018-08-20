@@ -13,16 +13,15 @@ var config *viper.Viper
 // (external lib) and returns the configuration struct.
 func Init(env string) {
 	var err error
-	v := viper.New()
-	v.SetConfigType("yaml")
-	v.SetConfigName(env)
-	v.AddConfigPath("../config/")
-	v.AddConfigPath("config/")
-	err = v.ReadInConfig()
+	config = viper.New()
+	config.SetConfigType("yaml")
+	config.SetConfigName(env)
+	config.AddConfigPath("../config/")
+	config.AddConfigPath("config/")
+	err = config.ReadInConfig()
 	if err != nil {
 		log.Fatal("error on parsing configuration file")
 	}
-	config = v
 }
 
 func relativePath(basedir string, path *string) {
