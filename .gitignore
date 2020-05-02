@@ -1,5 +1,5 @@
 .swp
-config/prod.yaml
+config/production.yaml
 build/
 Godeps/
 !Godeps/Godeps.json
