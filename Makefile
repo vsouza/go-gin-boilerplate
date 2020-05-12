@@ -21,15 +21,10 @@ run-prod: build
 clean:
 	@rm -f $(NAME)
 
-.PHONY: deps-save
-## deps-save: Godeps save
-deps-save:
-	@godep save
-
 .PHONY: deps
-## deps: Godeps restore
+## deps: Download modules
 deps:
-	@godep restore
+	@go mod download
 
 .PHONY: test
 ## test: Run tests with verbose mode
