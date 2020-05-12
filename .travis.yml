@@ -1,23 +1,13 @@
 language: go
-
 go:
-  - 1.9
+  - 1.10.x
   - master
-
+os:
+  - linux
+  - osx
+dist: trusty
+sudo: false
 install: true
-
-matrix:
-  allow_failures:
-    - go: master
-  fast_finish: true
-
-notifications:
-  email: false
-
-before_script:
-  - go get -v github.com/Masterminds/glide
-  - cd $GOPATH/src/github.com/Masterminds/glide && go install && cd -
-  - glide install
-
 script:
-  - go test -v ./...
+  - env GO111MODULE=on go build
+  - env GO111MODULE=on go test
