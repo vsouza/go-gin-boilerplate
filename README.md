@@ -63,6 +63,8 @@ check this project: [vsouza/docker-dynamoDB-local](https://github.com/vsouza/doc
 
 ## Release History
 
+* 0.0.2
+    * Auth middleware with sha checking. Support multiple config files.
 * 0.0.1
     * Configuration by environment, Auth and Log middlewares, User entity.
 
